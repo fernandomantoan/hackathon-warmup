@@ -80,21 +80,19 @@ const CreatePoint = () => {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const { name, email, whatsapp } = formData;
+    const { name, description, email, whatsapp } = formData;
     const [latitude, longitude] = selectedPosition;
     const services = selectedServices;
 
-    const data = new FormData();
-
-    data.append('name', name);
-    data.append('email', email);
-    data.append('whatsapp', whatsapp);
-    data.append('latitude', String(latitude));
-    data.append('longitude', String(longitude));
-    data.append('services', services.join(','));
-    if (selectedFile) {
-      data.append('image', selectedFile);
-    }
+    const data = {
+      name,
+      description,
+      email,
+      whatsapp,
+      latitude,
+      longitude,
+      services
+    };
 
     await api.post('points', data);
 
@@ -116,7 +114,6 @@ const CreatePoint = () => {
 
       <form onSubmit={handleSubmit}>
         <h1>Cadastro do Ponto de Saúde</h1>
-        <Dropzone onFileUploaded={setSelectedFile} />
         <fieldset>
           <legend>
             <h2>Dados</h2>
@@ -165,7 +162,7 @@ const CreatePoint = () => {
                 className={selectedServices.includes(service.id) ? 'selected' : ''}
                 key={service.id}
                 onClick={() => handleSelectItem(service.id)}>
-                <img src={service.image_url} alt={service.name} />
+                <strong>{service.name}</strong>
                 <span>{service.description}</span>
               </li>
             ))}
