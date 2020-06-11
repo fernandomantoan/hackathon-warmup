@@ -32,3 +32,4 @@ Route.get('/', async () => {
 
 Route.get('services', 'ServicesController.index')
 Route.get('seed', 'ServicesController.seed')
+Route.post('points', 'HealthCarePointsController.store')
