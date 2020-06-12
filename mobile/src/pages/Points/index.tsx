@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, Image, Alert } from 'react-native';
 import Constants from "expo-constants";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Feather as Icon} from '@expo/vector-icons';
+import { Feather as Icon, Entypo, FontAwesome, FontAwesome5, Foundation } from '@expo/vector-icons';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import MapView, { Marker } from 'react-native-maps';
 import { SvgUri } from 'react-native-svg';
@@ -107,8 +107,8 @@ const Points = () => {
           <Icon name="arrow-left" size={20} color="#34cb79"/>
         </TouchableOpacity>
 
-        <Text style={styles.title}>Bem vindo.</Text>
-        <Text style={styles.description}>Encontre no mapa um ponto de coleta</Text>
+        <Text style={styles.title}>Pontos de Interesse</Text>
+        <Text style={styles.description}>Encontre no mapa um ponto de auxílio médico, mecânico e pessoal.</Text>
 
         {/* <View style={styles.mapContainer}>
           { initialPosition[0] !== 0 && (
@@ -167,7 +167,8 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
+            {/* <Image source={require('../../assets/exam.jpg')}/> */}
+            <Entypo name="lab-flask" size={48} color="green"/>
             <Text style={styles.itemTitle}>Exames</Text>
           </TouchableOpacity>
           <TouchableOpacity  style={ styles.item }
@@ -177,8 +178,8 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
-            <Text style={styles.itemTitle}>Exames</Text>
+            <FontAwesome5 name="glasses" size={48} color="green" />
+            <Text style={styles.itemTitle}>Acuidade Visual</Text>
           </TouchableOpacity>
           <TouchableOpacity  style={ styles.item }
               onPress={() => {}} 
@@ -187,8 +188,8 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
-            <Text style={styles.itemTitle}>Exames</Text>
+            <FontAwesome name="heartbeat" size={48} color="green" />
+            <Text style={styles.itemTitle}>Aferição de Pressão</Text>
           </TouchableOpacity>
           <TouchableOpacity  style={ styles.item }
               onPress={() => {}} 
@@ -197,8 +198,8 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
-            <Text style={styles.itemTitle}>Exames</Text>
+            <FontAwesome5 name="tooth" size={48} color="green" />
+            <Text style={styles.itemTitle}>Atendimento Odontológico</Text>
           </TouchableOpacity>
           <TouchableOpacity  style={ styles.item }
               onPress={() => {}} 
@@ -207,8 +208,8 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
-            <Text style={styles.itemTitle}>Exames</Text>
+            <Entypo name="scissors" size={48} color="green" />
+            <Text style={styles.itemTitle}>Corte de Cabelo</Text>
           </TouchableOpacity>
           <TouchableOpacity  style={ styles.item }
               onPress={() => {}} 
@@ -217,8 +218,28 @@ const Points = () => {
               //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
               //     ]}
               activeOpacity={0.6}>
-            <Image source={require('../../assets/exam.jpg')}/>
-            <Text style={styles.itemTitle}>Exames</Text>
+            <FontAwesome5 name="truck" size={48} color="grey" />
+            <Text style={styles.itemTitle}>Oficina Mecânica</Text>
+          </TouchableOpacity>
+          <TouchableOpacity  style={ styles.item }
+              onPress={() => {}} 
+              // style={[
+              //       styles.item, 
+              //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
+              //     ]}
+              activeOpacity={0.6}>
+            <Foundation name="foot" size={48} color="green" />
+            <Text style={styles.itemTitle}>Cuidado com os pés</Text>
+          </TouchableOpacity>
+          <TouchableOpacity  style={ styles.item }
+              onPress={() => {}} 
+              // style={[
+              //       styles.item, 
+              //       selectedItems.includes(item.id) ? styles.selectedItem : {} 
+              //     ]}
+              activeOpacity={0.6}>
+            <FontAwesome5 name="bed" size={48} color="blue" />
+            <Text style={styles.itemTitle}>Dormitório</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>
@@ -319,7 +340,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontFamily: 'Roboto_400Regular',
     textAlign: 'center',
-    fontSize: 13,
+    fontSize: 14,
   },
 });
 
